@@ -14,7 +14,22 @@
 Provides a location to place projects that are no longer maintained and have
 been deleted from their previous repositories.
 
-See seL4-deprecated-manifests for pinned versions of projects that once worked
+See [seL4-deprecated-manifests](https://github.com/SEL4PROJ/seL4-deprecated-manifests) for pinned versions of projects that once worked
 together.
 
 Use at your own discretion.
+
+
+## Contents
+
+- libsel4arm-vmm: An Arm-only hardware virtualisation library.
+  Previously located in seL4_project_libs.  Became libsel4vm and libsel4vmmplatsupport.
+- libsel4vmm: A x86-only hardware virtualisation library.
+  Previously located in seL4_libs. Became libsel4vm and libsel4vmmplatsupport.
+- libsel4pci: A PCI emulation driver for vmms. Previously located in seL4_project_libs.
+  Was merged into libsel4vmmplatsupport.
+- libsel4vmmcore: Virtualisation utilities for vmms. Previously located in seL4_project_libs.
+  Was merged into libsel4vmmplatsupport.
+- patches/0001-Use-deprecated-libraries.patch: Patch for https://github.com/seL4/camkes-vm to use these deprecated libraries.
+- patches/0001-Use-deprecated-library-paths.patch: Patch for https://github.com/SEL4PROJ/camkes-arm-vm to use these deprecated libraries.
+- FindseL4-deprecated.cmake: CMake package file for importing these libraries into a CMake project.

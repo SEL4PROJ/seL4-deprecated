@@ -1,0 +1,27 @@
+From 66d7481ac56b581053c8b926f2ffa91071ff1dcb Mon Sep 17 00:00:00 2001
+From: Kent McLeod <Kent.Mcleod@data61.csiro.au>
+Date: Fri, 13 Dec 2019 17:52:37 +1100
+Subject: [PATCH] Use deprecated library paths
+
+---
+ Findcamkes-arm-vm.cmake | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/Findcamkes-arm-vm.cmake b/Findcamkes-arm-vm.cmake
+index 301f119..59ba942 100644
+--- a/Findcamkes-arm-vm.cmake
++++ b/Findcamkes-arm-vm.cmake
+@@ -23,6 +23,10 @@ macro(camkes_arm_vm_setup_arm_vm_environment)
+     find_package(sel4_projects_libs REQUIRED)
+     camkes_tool_setup_camkes_build_environment()
+     sel4_projects_libs_import_libraries()
++    find_package(seL4-deprecated REQUIRED)
++    add_subdirectory(${SEL4_DEPRECATED_DIR}/libsel4arm-vmm libsel4arm-vmm)
++    add_subdirectory(${SEL4_DEPRECATED_DIR}/libsel4pci libsel4pci)
++    add_subdirectory(${SEL4_DEPRECATED_DIR}/libsel4vmmcore libsel4vmmcore)
+     global_components_import_project()
+ 
+     include(${CAMKES_VM_HELPERS_PATH})
+-- 
+2.20.1
+

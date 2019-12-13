@@ -1,0 +1,27 @@
+From 10f983b8ad706246fd7c6da011b5f305ecf4b401 Mon Sep 17 00:00:00 2001
+From: Kent McLeod <Kent.Mcleod@data61.csiro.au>
+Date: Fri, 13 Dec 2019 17:59:19 +1100
+Subject: [PATCH] Use deprecated libraries
+
+---
+ Findcamkes-vm.cmake | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/Findcamkes-vm.cmake b/Findcamkes-vm.cmake
+index bd20825..f998aa5 100644
+--- a/Findcamkes-vm.cmake
++++ b/Findcamkes-vm.cmake
+@@ -21,6 +21,10 @@ macro(camkes_x86_vm_setup_x86_vm_environment)
+     find_package(global-components REQUIRED)
+     find_package(camkes-vm REQUIRED)
+     camkes_tool_setup_camkes_build_environment()
++
++    find_package(seL4-deprecated REQUIRED)
++    add_subdirectory(${SEL4_DEPRECATED_DIR}/libsel4vmm libsel4vmm)
++
+     global_components_import_project()
+     # Add project
+     add_subdirectory(${CAMKES_VM_DIR} camkes-vm)
+-- 
+2.20.1
+
